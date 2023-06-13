@@ -1,4 +1,4 @@
-import random
+import random, os
 
 a_1 = " "
 b_1 = " "
@@ -69,36 +69,34 @@ def get_player_pos():
 def check_for_victory():
     if (a_1 == a_2) and (a_2 == a_3) and a_3 != " ":
         print("Player", player_sym, "WON the Game!")
-        exit()
+        
     elif (b_1 == b_2) and (b_2 == b_3) and b_3 != " ":
         print("Player", player_sym, "WON the Game!")
-        exit()
+        
     elif (c_1 == c_2) and (c_2 == c_3) and c_3 != " ":
         print("Player", player_sym, "WON the Game!")
-        exit()
+        
     elif (a_1 == b_1) and (b_1 == c_1) and c_1 != " ":
         print("Player", player_sym, "WON the Game!")
-        exit()
+        
     elif (a_2 == b_2) and (b_2 == c_2) and c_2 != " ":
         print("Player", player_sym, "WON the Game!")
-        exit()
+        
     elif (a_3 == b_3) and (b_3 == c_3) and c_3 != " ":
         print("Player", player_sym, "WON the Game!")
-        exit()
+        
     elif (a_1 == b_2) and (b_2 == c_3) and c_3 != " ":
         print("Player", player_sym, "WON the Game!")
-        exit()
+        
     elif (a_3 == b_2) and (b_2 == c_1) and c_1 != " ":
         print("Player", player_sym, "WON the Game!")
-        exit()
+        
 
 #Trekker et tilfeldig trekk som datamaskinen spiller      
 def random_move_ai():
     global move 
     posistions = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
     ran_move = random.choice(list(posistions))
-    print(ran_move, type(ran_move))
-    
     while ran_move in placed_before:
         ran_move = random.choice(posistions)
     else:
@@ -111,6 +109,7 @@ print_board()
 
 while True:
     get_player_move()
+    os.system("cls")
     get_player_pos()
     print_board()
     check_for_victory()
